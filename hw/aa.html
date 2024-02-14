@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+h2{
+text-decoration: underline;
+}
+table {
+font-family: arial, sans-serif;
+color:cornflowerblue;
+border-collapse: collapse;
+width: 100%;
+}
+td, th {
+border: 4px solid #bfa0f9;
+text-align: left;
+padding: 8px;
+}
+</style>
+</head>
+<div>
+<h2>Product Inventory Management</h2>
+<table>
+<tbody>
+<tr>
+<th>Product Id</th>
+<th>Product Name</th>
+<th>Product Price</th>
+</tr>
+<tr>
+<td><input type="text" [(ngModel)]="product.productId" 
+placeholder="Product Id"></td>
+<td><input type="text" [(ngModel)]="product.productName" 
+placeholder="Product Name"></td>
+<td><input type="number" 
+[(ngModel)]="product.productPrice" placeholder="Product Price"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Product Id:{{product.productId}}</p>
+<p>Product Name:{{product.productName}}</p>
+<p>Product Price:{{product.productPrice}}</p>
+</html>

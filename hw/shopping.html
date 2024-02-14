@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script> 
+     let products= new Array();
+function myfunct(){
+    let quantity= document.getElementById("quantity").value;
+    let item= document.getElementById("products").value;
+    if(validate(quantity)){
+    let initial=products.length;
+    products.push(item+": "+quantity);
+    let list2 = document.getElementById("myList");
+    for (i = initial; i < products.length; ++i) {
+    let li = document.createElement('li');
+    li.innerText = products[i];
+    list2.appendChild(li);
+    if(products.length>0){
+        document.getElementById("checkout").removeAttribute("disabled");
+     }
+}
+}
+else{
+      document.getElementById("error").innerText="please enter a positive integer as quantity"
+}
+}
+function validate(quantity){
+    if(quantity<1){
+        return false;
+    }
+    else{
+        return true;
+    }
+function checkOut(){
+      window.location.href("welcome.html");
+}
+} </script>
+</head>
+<body style="background-color:hotpink;">
+<form name="cart1" id="form1" action="welcome.html">
+<label>select items</label>
+<select id="products" name="products">
+<option value="Apple">Apple</option>
+<option value="Pencil">Pencil</option>
+<option value ="Tv">Tv</option>
+<option value="Toy Car">Toy Car</option>
+</select></br>
+        Enter the quantity::<input id="quantity" type="number"/></br>
+<input type="button"  onclick="myfunct()" value="add to cart"/>
+<p id ="error"></p>
+</br><br/>
+<button id= "checkout" type="submit" disabled >check Out</button>
+</form>
+<fieldset>
+<legend>cart items</legend>
+<ul id="myList"></ul>
+</fieldset>
+
+</body>
+</html>
